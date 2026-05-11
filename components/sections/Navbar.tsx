@@ -30,11 +30,11 @@ const linkVariants = {
   opened: { y: 0, opacity: 1 },
 };
 
-export default function Navbar({ 
+export default function Navbar({
   navLinks = defaultNavLinks,
   ctaText = 'Refer & Earn',
   ctaHref = '/how-it-works',
-  showSolutions = true
+  showSolutions = true,
 }: NavbarProps) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -47,11 +47,15 @@ export default function Navbar({
     <header className="sticky top-0 z-50 border-b border-stone-100 bg-[#E9E9E7] backdrop-blur-xl">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
-
-          {/* Logo (Left) */}
-          <Link href="/" className="flex items-center gap-3 group min-w-0 z-10">
+          
+          {/* Logo */}
+          <Link
+            href="/"
+            className="group z-10 flex min-w-0 items-center gap-3"
+          >
             <div className="relative flex-shrink-0">
               <div className="absolute -inset-1.5 z-0 scale-0 rounded-full bg-stone-100/60 transition-transform duration-300 group-hover:scale-100" />
+
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -66,16 +70,18 @@ export default function Navbar({
                   priority
                   className="h-10 w-auto object-contain sm:h-12"
                 />
-                <span className="text-sm sm:text-lg font-extralight uppercase tracking-[0.2em] text-stone-900">
+
+                <span className="text-sm font-extralight uppercase tracking-[0.2em] text-stone-900 sm:text-lg">
                   Kaiy{"\u014d"}
                 </span>
               </motion.div>
             </div>
           </Link>
 
-          {/* Center Nav */}
-          <nav className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-1">
+          {/* Desktop Nav */}
+          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 md:flex">
             {showSolutions && <SolutionsDropdown />}
+
             {navLinks.map((link) => (
               <motion.div
                 key={link.name}
@@ -98,15 +104,19 @@ export default function Navbar({
                         : 'scale-50 opacity-0'
                     }`}
                   />
+
                   {link.name}
                 </Link>
               </motion.div>
             ))}
           </nav>
 
-          {/* Right Button (Desktop) */}
-          <div className="hidden md:flex items-center z-10">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          {/* Desktop CTA */}
+          <div className="z-10 hidden items-center md:flex">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <Link
                 href={ctaHref}
                 className="rounded-full bg-stone-900 px-5 py-2 text-xs font-semibold uppercase tracking-widest text-white transition-colors hover:bg-stone-800"
@@ -151,7 +161,10 @@ export default function Navbar({
                 animate="opened"
                 transition={{ staggerChildren: 0.08 }}
               >
+                {/* Solutions */}
                 {showSolutions && <SolutionsDropdown />}
+
+                {/* Nav Links */}
                 {navLinks.map((link) => (
                   <motion.div key={link.name} variants={linkVariants}>
                     <Link
@@ -165,6 +178,17 @@ export default function Navbar({
                     </Link>
                   </motion.div>
                 ))}
+
+                {/* Mobile CTA Button */}
+                <motion.div variants={linkVariants} className="pt-2">
+                  <Link
+                    href={ctaHref}
+                    className="block rounded-full bg-stone-900 px-4 py-3 text-center text-sm font-semibold uppercase tracking-widest text-white transition-colors hover:bg-stone-800"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {ctaText}
+                  </Link>
+                </motion.div>
               </motion.div>
             </motion.nav>
           )}
