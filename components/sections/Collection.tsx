@@ -1,158 +1,135 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Plus, Minus } from 'lucide-react';
 
-type Project = {
-  id: number;
-  name: string;
-  desc: string;
-  screenshot: string;
-  link: string;
-};
-
-const projects: Project[] = [
-  {
-    id: 1,
-    name: 'Lal Sweets Ecom Website',
-    desc: 'Modern sweets store with responsive design for smooth shopping.',
-    screenshot:
-      'https://images.pexels.com/photos/1036856/pexels-photo-1036856.jpeg?auto=compress&cs=tinysrgb&w=600',
-    link: 'https://2vportfolio.vercel.app/',
-  },
-  {
-    id: 2,
-    name: 'Kirtilals : Luxury Website',
-    desc: 'Premium diamond-jewellery store with elegant UX for luxury buyers.',
-    screenshot:
-      'https://images.pexels.com/photos/934062/pexels-photo-934062.jpeg?auto=compress&cs=tinysrgb&w=600',
-    link: 'https://2vportfolio.vercel.app/',
-  },
-  {
-    id: 3,
-    name: 'Tradescribe: Trading Platform',
-    desc: 'Built a sleek journaling platform for tracking trades with AI-backed analytics.',
-    screenshot:
-      'https://images.pexels.com/photos/3183187/pexels-photo-3183187.jpeg?auto=compress&cs=tinysrgb&w=600',
-    link: 'https://2vportfolio.vercel.app/',
-  },
-  {
-    id: 4,
-    name: 'Murzban Website',
-    desc: 'Elegant and clean website showcasing interior design and architecture portfolio.',
-    screenshot:
-      'https://images.pexels.com/photos/3183187/pexels-photo-3183187.jpeg?auto=compress&cs=tinysrgb&w=600',
-    link: 'https://2vportfolio.vercel.app/',
-  },
-  {
-    id: 5,
-    name: 'Greenfeels: Sustainable Ecom',
-    desc: 'Eco-conscious e-commerce platform promoting sustainable products.',
-    screenshot:
-      'https://images.pexels.com/photos/3183187/pexels-photo-3183187.jpeg?auto=compress&cs=tinysrgb&w=600',
-    link: 'https://2vportfolio.vercel.app/',
-  },
-  {
-    id: 6,
-    name: 'Momentz Ecom Website',
-    desc: 'A sophisticated online store for premium watches and luxury accessories.',
-    screenshot:
-      'https://images.pexels.com/photos/3183187/pexels-photo-3183187.jpeg?auto=compress&cs=tinysrgb&w=600',
-    link: 'https://2vportfolio.vercel.app/',
-  },
-];
-
+// --- Animation Variants ---
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 },
+    transition: { staggerChildren: 0.15 },
   },
 };
 
 const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: 'easeOut' } },
+  hidden: { y: 40, opacity: 0 },
+  visible: { 
+    y: 0, 
+    opacity: 1, 
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+  },
 };
 
-type PortfolioCardProps = Omit<Project, 'id'>;
-
-function PortfolioCard({ name, desc, screenshot, link }: PortfolioCardProps) {
+// --- Sub-Component: Moving Marquee ---
+function ScrollingText() {
   return (
-    <Link href={link} target="_blank" rel="noreferrer" className="block h-full">
-      <motion.div
-        variants={itemVariants}
-        whileHover={{ y: -4 }}
-        className="group flex h-full cursor-pointer flex-col rounded-3xl border border-gray-100 p-6 text-gray-600 shadow-sm hover:shadow-lg"
+    <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full overflow-hidden whitespace-nowrap pointer-events-none z-0 opacity-[0.03]">
+      <motion.div 
+        initial={{ x: 0 }}
+        animate={{ x: "-50%" }}
+        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        className="flex text-[25vw] font-black uppercase italic leading-none"
       >
-        <div className="relative mb-6 aspect-[16/10] overflow-hidden rounded-2xl bg-[#E9E9E7]">
-          <Image
-            src={screenshot}
-            alt={name}
-            fill
-            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
-
-        <div className="min-w-0 flex-grow space-y-2">
-          <h3 className="text-xl font-semibold text-[#1F2A1F] transition-colors group-hover:text-[#2F3E2F]">
-            {name}
-          </h3>
-          <p className="text-sm text-gray-600">{desc}</p>
-        </div>
+        <span className="mr-20">VISUAL DESIGN</span>
+        <span className="mr-20">VISUAL DESIGN</span>
       </motion.div>
-    </Link>
+    </div>
   );
 }
 
-export default function PortfolioSection() {
+export default function PortfolioPage() {
   return (
-    <section className="bg-[#E9E9E7] px-4 py-24 text-[#1F2A1F] sm:px-6 md:px-10">
-      <div className="mx-auto max-w-7xl">
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.5 }}
-          className="mb-16 md:mb-20"
-        >
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div className="max-w-3xl text-center md:text-left">
-              <div className="mb-4">
-                <span className="rounded-full border border-gray-300 bg-[#EDEDEB] px-6 py-2.5 text-sm font-medium">
-                  Social Presence
-                </span>
+    <main className="relative min-h-screen bg-[#E9E9E7] text-[#1F2A1F] font-sans selection:bg-[#004643] selection:text-white overflow-hidden">
+      
+      {/* Background Moving Text (Right to Left) */}
+      <ScrollingText />
+
+      {/* Hero Section */}
+      <section className="relative p-8 md:p-16 flex items-center justify-center min-h-screen z-10">
+        <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="space-y-12"
+          >
+            <motion.h1 
+              variants={itemVariants}
+              className="text-6xl md:text-[7.5rem] font-black uppercase leading-[0.8] tracking-tighter"
+            >
+              Building <br /> 
+              The <span className="text-[#004643] italic">Future</span> <br />
+              of Web
+            </motion.h1>
+
+            {/* Accordion / List Section */}
+            <div className="space-y-4 max-w-md">
+              {[
+                { title: "Strategy", active: false },
+                { title: "Visual Innovation", active: true, text: "Blending architectural precision with fluid motion to create digital experiences that breathe." },
+                { title: "Performance", active: false }
+              ].map((item, i) => (
+                <motion.div key={i} variants={itemVariants}>
+                  {item.active ? (
+                    <motion.div layoutId="activeAcc" className="bg-[#1F2A1F] text-[#E9E9E7] p-8 rounded-3xl shadow-2xl my-4">
+                      <div className="flex items-center gap-4 mb-3">
+                        <Minus className="w-5 h-5 text-[#004643]" />
+                        <span className="text-xl font-bold uppercase tracking-widest">{item.title}</span>
+                      </div>
+                      <p className="text-sm text-gray-400 leading-relaxed ml-9">{item.text}</p>
+                    </motion.div>
+                  ) : (
+                    <div className="flex items-center justify-between py-6 border-t border-[#1F2A1F]/10 cursor-pointer group transition-all">
+                      <div className="flex items-center gap-4">
+                        <Plus className="w-5 h-5 transition-transform group-hover:rotate-180 group-hover:text-[#004643]" />
+                        <span className="text-xl font-bold uppercase tracking-widest group-hover:text-[#004643] transition-colors">{item.title}</span>
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          <div className="relative">
+            {/* Featured Interactive Teal Card */}
+            <motion.div 
+              initial={{ opacity: 0, rotate: 10, y: 100 }}
+              animate={{ opacity: 1, rotate: 0, y: 0 }}
+              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ scale: 1.05, rotate: -2 }}
+              className="relative bg-[#004643] p-12 rounded-[3.5rem] aspect-square lg:aspect-[1.1/1] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,70,67,0.3)] flex flex-col justify-between"
+            >
+              <h3 className="text-[#E9E9E7] text-5xl md:text-6xl font-black uppercase leading-[0.85] tracking-tighter relative z-20">
+                Crafting <br /> With <br /> Purpose
+              </h3>
+              
+              <div className="space-y-3 z-10 relative">
+                <div className="bg-white/10 backdrop-blur-3xl p-5 rounded-2xl flex items-center justify-between border border-white/20">
+                  <span className="text-[#E9E9E7] text-xs font-bold uppercase tracking-[0.3em]">Excellence Rate</span>
+                  <span className="bg-[#E9E9E7] text-[#004643] px-5 py-2 rounded-full text-xs font-black italic">TOP TIER</span>
+                </div>
               </div>
 
-              <h2 className="text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl">
-                Dream It. We Build It. <br className="hidden sm:inline" /> Digitally
-              </h2>
-            </div>
-
-            <div className="flex justify-center md:justify-end">
-              <Link
-                href="/portfolio"
-                className="rounded-full border border-gray-300 px-6 py-2.5 text-sm font-medium transition-all duration-300 hover:bg-[#2f4f3f] hover:text-white"
-              >
-                View all
-              </Link>
-            </div>
+              {/* Decorative SVG Animated Path */}
+              <svg className="absolute inset-0 w-full h-full opacity-30 pointer-events-none" viewBox="0 0 400 400">
+                <motion.path 
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 3, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
+                  d="M-50 350 C 100 300, 200 100, 450 50" 
+                  stroke="white" 
+                  strokeWidth="2" 
+                  fill="transparent" 
+                />
+              </svg>
+            </motion.div>
           </div>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-3"
-        >
-          {projects.map((project) => (
-            <PortfolioCard key={project.id} {...project} />
-          ))}
-        </motion.div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </main>
   );
 }

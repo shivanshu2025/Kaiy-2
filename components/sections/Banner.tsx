@@ -1,20 +1,39 @@
 'use client';
 
 import { motion, useSpring, useTransform } from 'framer-motion';
-import Image from 'next/image';
-import { useRef, type MouseEvent } from 'react';
+import { ArrowRight, Plus } from 'lucide-react';
+import { useRef, useState, type MouseEvent } from 'react';
 
-export default function EleganceBanner() {
-  const ref = useRef<HTMLDivElement>(null);
-  const mouseX = useSpring(0, { stiffness: 100, damping: 20 });
-  const mouseY = useSpring(0, { stiffness: 100, damping: 20 });
+const items = [
+  {
+    title: 'NETWORKING OPPORTUNITIES',
+    desc: 'Connect with industry peers and experts.',
+    active: false,
+  },
+  {
+    title: 'WEBINARS AND EVENTS',
+    desc: 'Participate in exclusive events and live discussions.',
+    active: true,
+  },
+  {
+    title: 'NEWSLETTER',
+    desc: 'Subscribe to receive the latest insights and updates directly to your inbox.',
+    active: false,
+  },
+];
 
-  const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) {
-      return;
-    }
+export default function OpportunitySection() {
+  const containerRef = useRef<HTMLDivElement>(null);
 
-    const rect = ref.current.getBoundingClientRect();
+  const [activeIndex, setActiveIndex] = useState(1);
+
+  const mouseX = useSpring(0, { stiffness: 150, damping: 20 });
+  const mouseY = useSpring(0, { stiffness: 150, damping: 20 });
+
+  const handleMouseMove = (event: MouseEvent) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+
     const x = (event.clientX - rect.left) / rect.width - 0.5;
     const y = (event.clientY - rect.top) / rect.height - 0.5;
 
@@ -22,48 +41,101 @@ export default function EleganceBanner() {
     mouseY.set(y);
   };
 
-  const resetMousePosition = () => {
+  const resetMouse = () => {
     mouseX.set(0);
     mouseY.set(0);
   };
 
-  const textX = useTransform(mouseX, [-0.5, 0.5], [-15, 15]);
-  const imageX = useTransform(mouseX, [-0.5, 0.5], [20, -20]);
+  const textX = useTransform(mouseX, [-0.5, 0.5], [-20, 20]);
+  const textY = useTransform(mouseY, [-0.5, 0.5], [-10, 10]);
+  const iconX = useTransform(mouseX, [-0.5, 0.5], [40, -40]);
+
+  const next = () => {
+    setActiveIndex((prev) => (prev + 1) % items.length);
+  };
+
+  const prev = () => {
+    setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
+  };
 
   return (
-    <section className="flex justify-center bg-[#E9E9E7] px-4 py-16">
-      <motion.div
-        ref={ref}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={resetMousePosition}
-        className="relative flex w-full max-w-6xl flex-col items-center overflow-hidden rounded-2xl bg-[#2f4f3f] px-6 py-10 transition-all duration-500 hover:shadow-2xl md:flex-row md:px-12"
-      >
-        <motion.div style={{ x: textX }} className="w-full space-y-5 text-white md:w-1/2">
-          <h2 className="text-3xl font-extrabold leading-tight tracking-wide md:text-5xl">
-            ELEGANCE IN EVERY <br /> THREAD
-          </h2>
+    <div className="bg-[#E9E9E7] font-sans text-[#1a1612] overflow-x-hidden">
+      
+      {/* List Section */}
+      <section className="px-6 py-24 md:px-16 lg:px-24">
+        <div className="mx-auto max-w-6xl border-t border-stone-300">
+          {items.map((item, idx) => {
+            const isActive = idx === activeIndex;
 
-          <p className="max-w-sm text-xs uppercase tracking-wide text-gray-200 md:text-sm">
-            Especially suitable for a brand or collection that focuses on
-            intricate details, quality, and a timeless sense of style.
-          </p>
-        </motion.div>
+            return (
+              <motion.div
+                key={idx}
+                className={`relative flex min-h-[140px] items-center border-b border-stone-300 transition-all duration-500 ${
+                  isActive
+                    ? 'bg-[#1a1612] text-white rounded-[40px] my-6 shadow-xl'
+                    : 'hover:bg-stone-200/50'
+                }`}
+              >
+                <div className="grid w-full grid-cols-1 items-center gap-8 px-8 md:grid-cols-3 md:px-12">
+                  <h3 className="text-xl font-black uppercase tracking-tighter md:text-2xl">
+                    {item.title}
+                  </h3>
 
-        <div className="relative mt-10 flex w-full items-center justify-center md:mt-0 md:w-1/2">
-          <div className="absolute right-4 h-52 w-52 rounded-full bg-yellow-600 md:right-12 md:h-72 md:w-72" />
+                  <p className={`text-sm leading-relaxed ${isActive ? 'text-stone-400' : 'text-stone-600'}`}>
+                    {item.desc}
+                  </p>
 
-          <motion.div style={{ x: imageX }} className="relative z-10">
-            <Image
-              src="https://cdni.iconscout.com/illustration/premium/thumb/programmer-using-laptop-illustration-svg-download-png-11934869.png"
-              alt="Model"
-              width={250}
-              height={350}
-              sizes="(min-width: 768px) 250px, 200px"
-              className="h-auto w-[200px] object-contain md:w-[250px]"
-            />
-          </motion.div>
+                  <div className="flex justify-end gap-3">
+                    
+                    {/* LEFT BUTTON */}
+                    <button
+                      onClick={prev}
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-400 text-stone-600 hover:bg-stone-300"
+                    >
+                      <ArrowRight className="rotate-180" size={18} />
+                    </button>
+
+                    {/* RIGHT BUTTON */}
+                    <button
+                      onClick={next}
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-400 text-stone-600 hover:bg-stone-300"
+                    >
+                      <ArrowRight size={18} />
+                    </button>
+
+                  </div>
+                </div>
+
+              </motion.div>
+            );
+          })}
         </div>
-      </motion.div>
-    </section>
+      </section>
+
+      {/* Footer unchanged */}
+      <footer
+        ref={containerRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={resetMouse}
+        className="relative bg-[#1a1612] px-6 py-32 text-[#E9E9E7] md:px-16 lg:px-24 overflow-hidden"
+      >
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-16 md:flex-row md:items-end">
+          
+          <motion.div style={{ x: textX, y: textY }}>
+            <h2 className="text-[12vw] font-black uppercase leading-[0.8] tracking-tighter md:text-[100px] lg:text-[140px]">
+              THE TIME IS NOW <br />
+              <span className="text-stone-500">THE PATH IS</span> FORWARD
+            </h2>
+          </motion.div>
+
+          <motion.div style={{ x: iconX }} className="text-[#E9E9E7]">
+            <svg width="100" height="100" viewBox="0 0 100 100" fill="currentColor">
+              <path d="M50 0C50 40 10 50 0 50C10 50 50 60 50 100C50 60 90 50 100 50C90 50 50 40 50 0Z" />
+            </svg>
+          </motion.div>
+
+        </div>
+      </footer>
+    </div>
   );
 }

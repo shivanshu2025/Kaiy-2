@@ -8,6 +8,7 @@ import Feature from "@/components/sections/Feature";
 import Collection from "@/components/sections/Collection";
 import Blog from "@/components/sections/Blog";
 import Banner from "@/components/sections/Banner";
+import FutureEquitySection from "@/components/sections/FutureEquitySection";
 
 
 export default function Home() {
@@ -17,9 +18,11 @@ export default function Home() {
         <main className="bg-stone-50">
           <Hero />
           <Marquee />
+             <Collection />
+             <FutureEquitySection/>
           <Feature />
-          <Collection />
           <Blog />
+         
           <Banner />
         </main>
     </>
