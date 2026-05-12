@@ -24,9 +24,9 @@ export default function HeroSection({
   };
 
   return (
-    <section className="w-full min-h-[65vh] bg-[#F0F0F0] flex items-center justify-center px-5 py-10 relative overflow-hidden">
-      
-      <motion.div 
+    <section className="w-full min-h-[50vh] sm:min-h-[65vh] bg-[#F0F0F0] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-10 sm:py-12 relative overflow-hidden">
+
+      <motion.div
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
@@ -34,36 +34,36 @@ export default function HeroSection({
       >
 
         {/* BADGE */}
-        <motion.div 
+        <motion.div
           variants={fadeInUp}
-          className="inline-flex items-center px-4 py-1.5 mb-5 rounded-full bg-emerald-500/5 border border-emerald-500/20 text-[12px] font-bold uppercase tracking-widest text-emerald-900"
+          className="inline-flex items-center px-3 sm:px-4 py-1.5 mb-4 sm:mb-5 rounded-full bg-emerald-500/5 border border-emerald-500/20 text-[10px] sm:text-[12px] font-bold uppercase tracking-widest text-emerald-900"
         >
           {badge.text}
         </motion.div>
 
         {/* TITLE */}
-        <motion.h1 
+        <motion.h1
           variants={fadeInUp}
-          className="font-[cursive] text-[#32483e] leading-[0.95] font-bold text-[clamp(48px,8vw,96px)] mb-4"
+          className="font-[cursive] text-[#32483e] leading-[0.95] font-bold text-[clamp(32px,7vw,96px)] mb-3 sm:mb-4"
         >
           {title.main}
           <span className="relative inline-block">
             {title.highlight}
 
             {/* animated underline */}
-            <motion.span 
+            <motion.span
               initial={{ width: 0 }}
               animate={{ width: "110%" }}
               transition={{ delay: 0.8, duration: 0.8, ease: "easeInOut" }}
-              className="absolute left-[-5%] bottom-[10%] h-[6px] bg-emerald-500/70 rounded-full -z-10" 
+              className="absolute left-[-5%] bottom-[10%] h-[4px] sm:h-[6px] bg-emerald-500/70 rounded-full -z-10"
             />
           </span>
         </motion.h1>
 
         {/* DESCRIPTION */}
-        <motion.p 
+        <motion.p
           variants={fadeInUp}
-          className="text-slate-500 text-[clamp(16px,2vw,20px)] leading-relaxed max-w-[650px] m-0"
+          className="text-slate-500 text-sm sm:text-base md:text-lg leading-relaxed max-w-[650px] m-0"
         >
           {description}
         </motion.p>

@@ -135,43 +135,43 @@ export default function HowItWorksPage() {
     <main className="min-h-screen bg-[#E9E9E7] text-[#32483e]">
 
       {/* ===== 1. HERO SECTION ===== */}
-      <section className="relative overflow-hidden bg-[#E9E9E7] px-4 py-20 sm:px-6">
+      <section className="relative overflow-hidden bg-[#E9E9E7] px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
         <div className="mx-auto max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -28 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-
-              <h1 className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight mb-6 ${caveat.className}`}>
-                How It <span className="relative inline-block">
+              <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight mb-4 sm:mb-6 ${caveat.className}`}>
+                How It{" "}
+                <span className="relative inline-block">
                   Works
-                  <span className="absolute left-0 bottom-2 w-full h-3 bg-[#32483e]/20 -z-0 rotate-[-2deg] rounded-md"></span>
+                  <span className="absolute left-0 bottom-1 sm:bottom-2 w-full h-2 sm:h-3 bg-[#32483e]/20 -z-0 rotate-[-2deg] rounded-md"></span>
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed max-w-lg">
                 Join our partner network and earn up to 65% commission on every project. Simple, transparent, and profitable.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col xs:flex-row gap-3 sm:gap-4">
                 <motion.a
                   href="/calculator"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center gap-2 bg-[#32483e] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#2a3d34] transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-[#32483e] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:bg-[#2a3d34] transition-colors text-sm sm:text-base"
                 >
                   Calculate Earnings <FiArrowRight size={18} />
                 </motion.a>
               </div>
             </motion.div>
 
-            <div className="w-full h-full">
+            <div className="w-full">
               <img
                 src="https://engineersealstamps.com/cdn/shop/products/in-use-great-job-stamp-4773-photo-1_a600c697-e7ec-4ee7-89e3-f7288a7894e4.jpg?v=1683890415&width=1500"
                 alt="How it works"
-                className="w-full h-auto object-cover shadow-lg"
+                className="w-full h-auto max-h-[400px] object-cover shadow-lg rounded-xl"
               />
             </div>
 
@@ -180,23 +180,23 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ===== 2. EARNING TIERS ===== */}
-      <section className="px-4 py-16 sm:px-6">
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8 sm:mb-12"
           >
-            <h2 className={`text-4xl sm:text-5xl md:text-6xl mb-4 ${caveat.className}`}>
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4 ${caveat.className}`}>
               Transparent Earning Tiers
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
               Choose your involvement level and earn accordingly. More responsibility, higher rewards.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
             {EARNING_TIERS.map((tier, index) => (
               <motion.div
                 key={tier.name}
@@ -205,20 +205,20 @@ export default function HowItWorksPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.02 }}
-                className="group relative bg-[#E9E9E7] rounded-[2rem] p-8 shadow-lg hover:shadow-2xl transition-all overflow-hidden"
+                className="group relative bg-[#E9E9E7] rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 shadow-lg hover:shadow-2xl transition-all overflow-hidden"
               >
-                <div className={`absolute left-0 top-1/2 -translate-y-1/2 w-3 h-24 rounded-r-full ${tier.color}`} />
+                <div className={`absolute left-0 top-1/2 -translate-y-1/2 w-2.5 sm:w-3 h-20 sm:h-24 rounded-r-full ${tier.color}`} />
 
-                <div className="mb-6">
-                  <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
-                  <div className="text-5xl font-black text-[#32483e] mb-2">{tier.percentage}</div>
-                  <p className="text-sm text-gray-600">{tier.description}</p>
+                <div className="mb-4 sm:mb-6">
+                  <h3 className="text-lg sm:text-2xl font-bold mb-2">{tier.name}</h3>
+                  <div className="text-4xl sm:text-5xl font-black text-[#32483e] mb-2">{tier.percentage}</div>
+                  <p className="text-xs sm:text-sm text-gray-600">{tier.description}</p>
                 </div>
 
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                   {tier.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm">
-                      <FiCheckCircle className="text-[#32483e] mt-0.5 flex-shrink-0" size={16} />
+                    <li key={i} className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm">
+                      <FiCheckCircle className="text-[#32483e] mt-0.5 flex-shrink-0" size={14} />
                       <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
@@ -226,7 +226,7 @@ export default function HowItWorksPage() {
 
                 <a
                   href="/partner-signup"
-                  className="block w-full text-center bg-[#32483e]/10 text-[#32483e] py-3 rounded-xl font-semibold hover:bg-[#32483e] hover:text-white transition-colors"
+                  className="block w-full text-center bg-[#32483e]/10 text-[#32483e] py-2.5 sm:py-3 rounded-xl font-semibold hover:bg-[#32483e] hover:text-white transition-colors text-sm"
                 >
                   Get Started
                 </a>
@@ -237,30 +237,30 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ===== 3. RESPONSIBILITY DIVISION ===== */}
-      <section className="px-4 py-16 sm:px-6 bg-[#E9E9E7]">
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-[#E9E9E7]">
         <div className="mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8 sm:mb-12"
           >
-            <h2 className={`text-4xl sm:text-5xl md:text-6xl mb-4 ${caveat.className}`}>
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 ${caveat.className}`}>
               Clear Division of Responsibility
             </h2>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-10">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-10">
             <motion.div
               initial={{ opacity: 0, x: -28 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-[#E9E9E7] rounded-2xl p-8"
+              className="bg-[#E9E9E7] rounded-2xl p-5 sm:p-8 border border-white/60 shadow-sm"
             >
-              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <FiUsers className="text-[#32483e]" /> Your Role
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center gap-3">
+                <FiUsers className="text-[#32483e] flex-shrink-0" /> Your Role
               </h3>
-              <ul className="space-y-4">
+              <ul className="space-y-3 sm:space-y-4">
                 {[
                   'Identify and connect with potential clients',
                   'Share project requirements with our team',
@@ -269,10 +269,10 @@ export default function HowItWorksPage() {
                   'Track project progress and earnings'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-[#32483e] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold">
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#32483e] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold">
                       {i + 1}
                     </div>
-                    <span className="text-gray-700">{item}</span>
+                    <span className="text-gray-700 text-sm sm:text-base">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -282,12 +282,12 @@ export default function HowItWorksPage() {
               initial={{ opacity: 0, x: 28 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-[#E9E9E7] rounded-2xl p-8"
+              className="bg-[#E9E9E7] rounded-2xl p-5 sm:p-8 border border-white/60 shadow-sm"
             >
-              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <FiBriefcase className="text-[#32483e]" /> Our Role
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center gap-3">
+                <FiBriefcase className="text-[#32483e] flex-shrink-0" /> Our Role
               </h3>
-              <ul className="space-y-4">
+              <ul className="space-y-3 sm:space-y-4">
                 {[
                   'Handle all technical development',
                   'Manage project timelines and delivery',
@@ -296,10 +296,10 @@ export default function HowItWorksPage() {
                   'Process your earnings promptly'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-[#32483e] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold">
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#32483e] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold">
                       {i + 1}
                     </div>
-                    <span className="text-gray-700">{item}</span>
+                    <span className="text-gray-700 text-sm sm:text-base">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -309,20 +309,20 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ===== 4. WORKFLOW STEPS ===== */}
-      <section className="px-4 py-16 sm:px-6">
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8 sm:mb-12"
           >
-            <h2 className={`text-4xl sm:text-5xl md:text-6xl mb-4 ${caveat.className}`}>
-              Simple 4-Step Process
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 ${caveat.className}`}>
+              Simple 3-Step Process
             </h2>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
             {WORKFLOW_STEPS.map((step, index) => (
               <motion.div
                 key={step.number}
@@ -330,17 +330,18 @@ export default function HowItWorksPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="relative bg-[#E9E9E7]rounded-2xl p-6 shadow-lg"
+                whileHover={{ scale: 1.02 }}
+                className="relative bg-white/40 rounded-2xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition-all"
               >
-                <div className="text-6xl font-black text-[#32483e]/10 absolute top-4 right-4">
+                <div className="text-5xl sm:text-6xl font-black text-[#32483e]/10 absolute top-3 sm:top-4 right-4">
                   {step.number}
                 </div>
                 <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-xl bg-[#32483e] text-white flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-[#32483e] text-white flex items-center justify-center mb-3 sm:mb-4">
                     {step.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                  <p className="text-sm text-gray-600">{step.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold mb-2">{step.title}</h3>
+                  <p className="text-xs sm:text-sm text-gray-600">{step.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -349,18 +350,18 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ===== 5. PRICING + CALCULATOR UI ===== */}
-      <section className="px-4 py-16 sm:px-6 bg-[#E9E9E7]">
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-[#E9E9E7]">
         <div className="mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8 sm:mb-12"
           >
-            <h2 className={`text-4xl sm:text-5xl md:text-6xl mb-4 ${caveat.className}`}>
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 ${caveat.className}`}>
               Calculate Your Potential
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
               See how much you can earn based on project value and your role
             </p>
           </motion.div>
@@ -369,22 +370,22 @@ export default function HowItWorksPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-[#32483e] to-[#2a3d34] rounded-[2.5rem] p-8 md:p-12 text-white"
+            className="bg-gradient-to-br from-[#32483e] to-[#2a3d34] rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-8 md:p-12 text-white"
           >
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <div className="text-sm mb-2 opacity-80">Project Value</div>
-                <div className="text-4xl font-bold mb-1">₹50,000</div>
+            <div className="grid sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6">
+                <div className="text-xs sm:text-sm mb-2 opacity-80">Project Value</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1">₹50,000</div>
                 <div className="text-xs opacity-60">Example project</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <div className="text-sm mb-2 opacity-80">Your Role</div>
-                <div className="text-4xl font-bold mb-1">Referral</div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6">
+                <div className="text-xs sm:text-sm mb-2 opacity-80">Your Role</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1">Referral</div>
                 <div className="text-xs opacity-60">30% commission</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <div className="text-sm mb-2 opacity-80">Your Earnings</div>
-                <div className="text-4xl font-bold mb-1">₹15,000</div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6">
+                <div className="text-xs sm:text-sm mb-2 opacity-80">Your Earnings</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1">₹15,000</div>
                 <div className="text-xs opacity-60">Per project</div>
               </div>
             </div>
@@ -392,7 +393,7 @@ export default function HowItWorksPage() {
             <div className="text-center">
               <a
                 href="/calculator"
-                className="inline-flex items-center gap-2 bg-[#E9E9E7] text-[#32483e] px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-colors"
+                className="inline-flex items-center gap-2 bg-[#E9E9E7] text-[#32483e] px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold hover:bg-gray-100 transition-colors text-sm sm:text-base"
               >
                 Try Interactive Calculator <FiArrowRight size={18} />
               </a>
@@ -402,48 +403,48 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ===== 6. WHY CHOOSE US ===== */}
-      <section className="px-4 py-16 sm:px-6">
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8 sm:mb-12"
           >
-            <h2 className={`text-4xl sm:text-5xl md:text-6xl mb-4 ${caveat.className}`}>
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 ${caveat.className}`}>
               Why Choose Us
             </h2>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[
               {
-                icon: <FiDollarSign size={28} />,
+                icon: <FiDollarSign size={24} />,
                 title: 'High Commissions',
                 description: 'Earn up to 65% on every project you bring',
               },
               {
-                icon: <FiShield size={28} />,
+                icon: <FiShield size={24} />,
                 title: 'Secure Payments',
                 description: 'Transparent and timely payouts guaranteed',
               },
               {
-                icon: <FiTarget size={28} />,
+                icon: <FiTarget size={24} />,
                 title: 'Quality Delivery',
                 description: 'We ensure exceptional results for your clients',
               },
               {
-                icon: <FiUsers size={28} />,
+                icon: <FiUsers size={24} />,
                 title: 'Dedicated Support',
                 description: '24/7 assistance for partners and clients',
               },
               {
-                icon: <FiTrendingUp size={28} />,
+                icon: <FiTrendingUp size={24} />,
                 title: 'Growth Potential',
                 description: 'Scale your earnings with more projects',
               },
               {
-                icon: <FiZap size={28} />,
+                icon: <FiZap size={24} />,
                 title: 'Fast Turnaround',
                 description: 'Quick project completion and delivery',
               },
@@ -455,13 +456,13 @@ export default function HowItWorksPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.02 }}
-                className="bg-[#E9E9E7]rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
+                className="bg-white/40 rounded-2xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition-all"
               >
-                <div className="w-14 h-14 rounded-xl bg-[#32483e]/10 text-[#32483e] flex items-center justify-center mb-4">
+                <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-xl bg-[#32483e]/10 text-[#32483e] flex items-center justify-center mb-3 sm:mb-4">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                <p className="text-sm text-gray-600">{feature.description}</p>
+                <h3 className="text-lg sm:text-xl font-bold mb-2">{feature.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-600">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -469,19 +470,19 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ===== 7. FAQ SECTION ===== */}
-      <section className="px-4 py-16 sm:px-6 bg-[#E9E9E7]">
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-[#E9E9E7]">
         <div className="mx-auto max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             <motion.div
               initial={{ opacity: 0, x: -28 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
               <p className="text-sm text-gray-600 mb-2">FAQ</p>
-              <h2 className={`text-4xl sm:text-5xl ${caveat.className} mb-6`}>
+              <h2 className={`text-3xl sm:text-4xl md:text-5xl ${caveat.className} mb-4 sm:mb-6`}>
                 Frequently Asked Questions
               </h2>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm sm:text-base">
                 Everything you need to know about our partner program. Can't find what you're looking for? Contact us.
               </p>
             </motion.div>
@@ -499,14 +500,15 @@ export default function HowItWorksPage() {
                 >
                   <button
                     onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                    className="w-full flex justify-between items-center px-5 py-4 text-left font-semibold"
+                    className="w-full flex justify-between items-start gap-4 px-4 sm:px-5 py-3 sm:py-4 text-left font-semibold text-sm sm:text-base"
                   >
-                    {item.q}
+                    <span>{item.q}</span>
                     <motion.span
+                      className="flex-shrink-0 mt-0.5"
                       animate={{ rotate: openIndex === i ? 180 : 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <FiChevronDown size={20} />
+                      <FiChevronDown size={18} />
                     </motion.span>
                   </button>
 
@@ -519,7 +521,7 @@ export default function HowItWorksPage() {
                         transition={{ duration: 0.25 }}
                         className="overflow-hidden"
                       >
-                        <div className="px-5 pb-5 text-sm text-gray-700">
+                        <div className="px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-gray-700">
                           {item.a}
                         </div>
                       </motion.div>
@@ -533,48 +535,48 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ===== 8. CTA BANNER ===== */}
-      <section className="px-4 py-20 sm:px-6">
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
         <div className="mx-auto max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-[#32483e] to-[#2a3d34] rounded-[2.5rem] p-10 md:p-16 text-center text-white relative overflow-hidden"
+            className="bg-gradient-to-br from-[#32483e] to-[#2a3d34] rounded-2xl sm:rounded-[2.5rem] p-7 sm:p-10 md:p-16 text-center text-white relative overflow-hidden"
           >
             <div className="relative z-10">
-              <h2 className={`text-4xl sm:text-5xl md:text-6xl mb-6 ${caveat.className}`}>
+              <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 ${caveat.className}`}>
                 Ready to Start Earning?
               </h2>
-              <p className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg text-gray-200 mb-6 sm:mb-8 max-w-2xl mx-auto">
                 Join hundreds of partners who are already earning with us. Start your journey today.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <motion.a
                   href="https://wa.me/919876543210"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center gap-2 bg-[#E9E9E7] text-[#32483e] px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-[#E9E9E7] text-[#32483e] px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold hover:bg-gray-100 transition-colors text-sm sm:text-base"
                 >
-                  <FiMessageCircle size={20} />
+                  <FiMessageCircle size={18} />
                   Contact on WhatsApp
                 </motion.a>
                 <motion.a
                   href="/partner-signup"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold hover:bg-white/10 transition-colors text-sm sm:text-base"
                 >
-                  Get Started Now <FiArrowRight size={18} />
+                  Get Started Now <FiArrowRight size={16} />
                 </motion.a>
               </div>
             </div>
 
             {/* Decorative Elements */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+            <div className="absolute top-0 right-0 w-40 sm:w-64 h-40 sm:h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-32 sm:w-48 h-32 sm:h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
           </motion.div>
         </div>
       </section> 

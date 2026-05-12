@@ -38,23 +38,22 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-[#E5E5E5] text-[#32483e]">
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 pt-12 sm:pt-16 pb-10">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pt-10 sm:pt-12 md:pt-16 pb-10">
 
-        {/* ✅ FONT + CENTER FIX */}
         <motion.h1
           initial={{ opacity: 0, y: -18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight text-center mb-4 ${caveat.className}`}
+          className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight text-center mb-4 ${caveat.className}`}
         >
           Get in touch
         </motion.h1>
 
-        <p className="text-center text-sm sm:text-base text-gray-600 mb-10 sm:mb-12 max-w-xl mx-auto">
-       Tell us about your idea — we’ll handle the design, development, and everything in between.
+        <p className="text-center text-sm sm:text-base text-gray-600 mb-8 sm:mb-10 md:mb-12 max-w-xl mx-auto">
+          Tell us about your idea — we’ll handle the design, development, and everything in between.
         </p>
 
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 border-t border-[#32483e]/10 pt-8 sm:pt-10">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 border-t border-[#32483e]/10 pt-8 sm:pt-10">
 
           {/* LEFT FORM */}
           <motion.div
@@ -123,8 +122,8 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 py-16">
-        <div className="grid lg:grid-cols-2 gap-12">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-12">
           <div>
             <p className="text-sm text-gray-600 mb-2">FAQ</p>
             <h2 className="text-3xl sm:text-4xl font-bold">
@@ -187,7 +186,7 @@ function FaqItem({ item, isOpen, onToggle }: { item: { q: string; a: string }; i
     <div className="border border-[#32483e]/10 rounded-xl overflow-hidden">
       <button
         onClick={onToggle}
-        className="w-full flex justify-between px-5 py-4"
+        className="w-full flex justify-between items-start gap-4 px-4 sm:px-5 py-3 sm:py-4 text-left"
       >
         {item.q}
         <span>{isOpen ? '-' : '+'}</span>

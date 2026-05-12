@@ -55,32 +55,27 @@ export default function PricingPage() {
   return (
     <main className="bg-[#E5E5E5] min-h-screen font-sans">
 
-      <section className="max-w-6xl mx-auto px-4 py-20">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
 
-        {/* 🔥 Styled Heading */}
-        <div className="text-center mb-20">
+        {/* Styled Heading */}
+        <div className="text-center mb-10 sm:mb-14 md:mb-20">
 
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-[#1f2937] leading-tight font-[Caveat]">
-            
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#1f2937] leading-tight font-[Caveat]">
             You are not{" "}
-            
             <span className="relative inline-block">
               <span className="relative z-10">dreaming!</span>
-
-              {/* Yellow highlight */}
-              <span className="absolute left-0 bottom-2 w-full h-6 bg-[#2f4f3f] -z-0 rotate-[-2deg] rounded-md"></span>
+              <span className="absolute left-0 bottom-1 sm:bottom-2 w-full h-4 sm:h-6 bg-[#2f4f3f] -z-0 rotate-[-2deg] rounded-md"></span>
             </span>
           </h1>
 
-          {/* Optional Subtext */}
-          <p className="mt-6 text-xl sm:text-2xl text-gray-600 font-[Caveat]">
+          <p className="mt-4 sm:mt-6 text-lg sm:text-xl md:text-2xl text-gray-600 font-[Caveat]">
             Build your website simple, fast & affordable.
           </p>
 
         </div>
 
         {/* Pricing Cards */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4 sm:gap-6">
           {pricingPackages.map((pkg, index) => (
             <motion.div
               key={index}
@@ -88,32 +83,32 @@ export default function PricingPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.02 }}
-              className="group relative bg-[#fdfcf7] rounded-[2.5rem] p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between text-stone-900 overflow-hidden cursor-pointer transition-shadow hover:shadow-2xl hover:shadow-orange-500/10"
+              whileHover={{ scale: 1.01 }}
+              className="group relative bg-[#fdfcf7] rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between text-stone-900 overflow-hidden cursor-pointer transition-shadow hover:shadow-2xl hover:shadow-orange-500/10"
             >
               {/* Accent Bar */}
-              <div className={`absolute left-0 top-1/2 -translate-y-1/2 w-3 h-24 rounded-r-full ${pkg.color}`} />
+              <div className={`absolute left-0 top-1/2 -translate-y-1/2 w-2.5 sm:w-3 h-20 sm:h-24 rounded-r-full ${pkg.color}`} />
 
               {/* Title */}
-              <div className="md:w-1/3 mb-6 md:mb-0">
-                <h2 className="text-3xl font-bold mb-2">{pkg.title}</h2>
-                <p className="text-sm text-stone-600 leading-relaxed">
+              <div className="w-full md:w-1/3 mb-4 sm:mb-6 md:mb-0 pl-2">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2">{pkg.title}</h2>
+                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
                   {pkg.description}
                 </p>
               </div>
 
               {/* Price */}
-              <div className="md:w-1/4 mb-6 md:mb-0 text-left md:text-center">
-                <span className="text-3xl font-black tracking-tighter">
+              <div className="w-full md:w-1/4 mb-4 sm:mb-6 md:mb-0 text-left md:text-center">
+                <span className="text-xl sm:text-2xl md:text-3xl font-black tracking-tighter">
                   {pkg.price}
                 </span>
               </div>
 
               {/* Features */}
-              <div className="md:w-1/3">
-                <ul className="text-xs space-y-1 text-stone-700 list-disc list-inside">
+              <div className="w-full md:w-1/3">
+                <ul className="text-xs sm:text-sm space-y-1 sm:space-y-1.5 text-stone-700 list-disc list-inside">
                   {pkg.features.map((feature, i) => (
-                    <li key={i} className="leading-tight">
+                    <li key={i} className="leading-snug">
                       {feature}
                     </li>
                   ))}
