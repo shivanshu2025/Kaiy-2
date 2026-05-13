@@ -62,7 +62,7 @@ export default function OpportunitySection() {
     <div className="bg-[#E9E9E7] font-sans text-[#1a1612] overflow-x-hidden">
       
       {/* List Section */}
-      <section className="px-6 py-24 md:px-16 lg:px-24">
+      <section className="px-4 py-12 sm:px-6 sm:py-16 md:px-12 md:py-20 lg:px-24 lg:py-24">
         <div className="mx-auto max-w-6xl border-t border-stone-300">
           {items.map((item, idx) => {
             const isActive = idx === activeIndex;
@@ -70,14 +70,14 @@ export default function OpportunitySection() {
             return (
               <motion.div
                 key={idx}
-                className={`relative flex min-h-[140px] items-center border-b border-stone-300 transition-all duration-500 ${
+                className={`relative flex items-center border-b border-stone-300 transition-all duration-500 ${
                   isActive
-                    ? 'bg-[#1a1612] text-white rounded-[40px] my-6 shadow-xl'
+                    ? 'bg-[#1a1612] text-white rounded-2xl sm:rounded-[40px] my-4 sm:my-6 shadow-xl'
                     : 'hover:bg-stone-200/50'
                 }`}
               >
-                <div className="grid w-full grid-cols-1 items-center gap-8 px-8 md:grid-cols-3 md:px-12">
-                  <h3 className="text-xl font-black uppercase tracking-tighter md:text-2xl">
+                <div className="grid w-full grid-cols-1 items-center gap-4 sm:gap-6 px-4 py-5 sm:px-6 sm:py-6 md:grid-cols-3 md:px-10 lg:px-12">
+                  <h3 className="text-base sm:text-xl font-black uppercase tracking-tighter md:text-2xl">
                     {item.title}
                   </h3>
 
@@ -85,22 +85,22 @@ export default function OpportunitySection() {
                     {item.desc}
                   </p>
 
-                  <div className="flex justify-end gap-3">
-                    
+                  <div className="flex justify-start md:justify-end gap-3">
+
                     {/* LEFT BUTTON */}
                     <button
                       onClick={prev}
-                      className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-400 text-stone-600 hover:bg-stone-300"
+                      className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-stone-400 text-stone-600 hover:bg-stone-300 transition-colors"
                     >
-                      <ArrowRight className="rotate-180" size={18} />
+                      <ArrowRight className="rotate-180" size={16} />
                     </button>
 
                     {/* RIGHT BUTTON */}
                     <button
                       onClick={next}
-                      className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-400 text-stone-600 hover:bg-stone-300"
+                      className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-stone-400 text-stone-600 hover:bg-stone-300 transition-colors"
                     >
-                      <ArrowRight size={18} />
+                      <ArrowRight size={16} />
                     </button>
 
                   </div>
@@ -112,18 +112,19 @@ export default function OpportunitySection() {
         </div>
       </section>
 
-      {/* Footer unchanged */}
+      {/* Footer */}
       <footer
         ref={containerRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={resetMouse}
-        className="relative bg-[#1a1612] px-6 py-32 text-[#E9E9E7] md:px-16 lg:px-24 overflow-hidden"
+        className="relative bg-[#1a1612] px-4 py-16 sm:px-6 sm:py-24 md:px-12 md:py-28 lg:px-24 lg:py-32 text-[#E9E9E7] overflow-hidden"
       >
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-16 md:flex-row md:items-end">
-          
-          <motion.div style={{ x: textX, y: textY }}>
-            <h2 className="text-[12vw] font-black uppercase leading-[0.8] tracking-tighter md:text-[100px] lg:text-[140px]">
-              THE TIME IS NOW <br />
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-10 sm:gap-16 md:flex-row md:items-end">
+
+          <motion.div style={{ x: textX, y: textY }} className="overflow-hidden">
+            <h2 className="text-[10vw] sm:text-[11vw] font-black uppercase leading-[0.8] tracking-tighter md:text-[8vw] lg:text-[100px] xl:text-[140px]">
+              THE TIME IS NOW
+              <br />
               <span className="text-stone-500">THE PATH IS</span> FORWARD
             </h2>
           </motion.div>

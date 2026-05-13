@@ -7,7 +7,7 @@ export default function OurStorySection() {
   const backgroundX = useTransform(scrollYProgress, [0, 1], [0, -150]);
 
   return (
-    <section className="relative flex min-h-screen w-full flex-col items-center justify-start overflow-hidden bg-[#E9E9E7] px-4 py-12 font-serif text-[#2D3627] md:px-6 md:py-20">
+    <section className="relative flex min-h-screen w-full flex-col items-center justify-start overflow-hidden bg-[#E9E9E7] px-4 py-10 sm:py-12 font-serif text-[#2D3627] sm:px-6 md:px-8 md:py-20">
       <motion.div
         style={{ x: backgroundX }}
         className="pointer-events-none absolute right-0 top-0 z-0 whitespace-nowrap p-4 opacity-5 select-none md:p-10"
@@ -17,7 +17,7 @@ export default function OurStorySection() {
         </span>
       </motion.div>
 
-      <div className="relative z-20 mb-12 flex w-full max-w-7xl flex-col items-start justify-between gap-6 md:mb-16 md:flex-row md:items-end md:gap-8">
+      <div className="relative z-20 mb-10 sm:mb-12 flex w-full max-w-7xl flex-col items-start justify-between gap-6 md:mb-16 md:flex-row md:items-end md:gap-8">
         <div className="hidden select-none gap-2 opacity-40 sm:flex md:gap-4 md:opacity-60">
           {[1, 2, 3, 4].map((i) => (
             <motion.span
@@ -101,7 +101,7 @@ export default function OurStorySection() {
             y: { repeat: Infinity, duration: 4, ease: 'easeInOut' },
           }}
           whileHover={{ scale: 1.2, rotate: 15 }}
-          className="absolute -bottom-6 -left-2 sm:-bottom-8 sm:-left-4 md:-bottom-14 md:-left-12 z-30 h-24 w-24 sm:h-28 sm:w-28 md:h-36 md:w-36 lg:h-44 lg:w-44"
+          className="absolute -bottom-6 -left-3 z-30 h-20 w-20 sm:-bottom-10 sm:-left-6 sm:h-32 sm:w-32 md:-bottom-14 md:-left-12 md:h-44 md:w-44"
         >
           <div className="group relative flex h-full w-full cursor-pointer items-center justify-center rounded-full border-2 sm:border-2 md:border-4 border-white/20 p-1 shadow-2xl">
             <div className="absolute bottom-2 left-2 h-8 w-8 rounded-full bg-white/20 blur-md transition-colors group-hover:bg-white/40 md:h-14 md:w-14" />

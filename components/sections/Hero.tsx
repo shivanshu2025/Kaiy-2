@@ -17,18 +17,16 @@ export default function FashionHero() {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-0 z-0 flex select-none items-center justify-center">
-        <h1 className="text-center text-[10vw] font-black uppercase leading-[0.85] tracking-tighter opacity-10">
-          The future of <br />
-          startup building <br />
-          {"\u2014"}Kaiy{"\u014d"}
+      <div className="pointer-events-none absolute inset-0 z-0 flex select-none items-center justify-center px-4">
+        <h1 className="text-center text-[8vw] sm:text-[9vw] md:text-[10vw] font-black uppercase leading-[0.85] tracking-tighter opacity-10">
+          The future of startup building {"\u2014"}Kaiy{"\u014d"}
         </h1>
       </div>
 
       <div className="relative z-10 flex w-full max-w-7xl flex-col items-center justify-between md:flex-row">
-        <div className="z-20 mt-24 w-full max-w-md space-y-10 sm:space-y-12 md:mt-0 md:w-1/3 md:max-w-none">
+        <div className="z-20 mt-16 w-full max-w-xs sm:max-w-sm space-y-8 sm:space-y-10 md:mt-0 md:w-1/3 md:max-w-none">
           <div className="w-full max-w-[280px] sm:max-w-[320px] -rotate-1 sm:-rotate-1 border-r-4 border-[#2f4f3f] bg-black p-3 text-white shadow-2xl">
-            <h2 className="mb-2 text-lg sm:text-xl font-bold tracking-tight">
+            <h2 className="mb-2 text-base sm:text-xl font-bold tracking-tight">
               Venture Capital Reimagined.
             </h2>
             <p className="text-xs sm:text-sm font-medium uppercase leading-relaxed tracking-tight opacity-80">
@@ -37,21 +35,21 @@ export default function FashionHero() {
             </p>
           </div>
 
-          <div className="group relative h-48 w-40 sm:h-56 sm:w-44 rotate-2 overflow-hidden rounded-2xl border-4 border-white shadow-2xl">
+          <div className="group relative h-44 w-36 sm:h-56 sm:w-44 rotate-2 overflow-hidden rounded-2xl border-4 border-white shadow-2xl">
             <Image
               src="/images/kk.png"
               alt="Yellow Jacket"
               fill
-              sizes="(min-width: 640px) 176px, 160px"
+              sizes="(min-width: 640px) 176px, 144px"
               className="object-cover grayscale transition-all duration-500 hover:grayscale-0"
             />
-            <div className="absolute bottom-4 sm:bottom-6 -left-3 sm:-left-4 bg-[#2D3627] px-3 sm:px-4 py-1 text-[8px] sm:text-[10px] font-bold uppercase text-white -rotate-12">
+            <div className="absolute bottom-4 sm:bottom-6 -left-4 bg-[#2D3627] px-3 sm:px-4 py-1 text-[9px] sm:text-[10px] font-bold uppercase text-white -rotate-12">
               I create websites and sell them.{"\u201d"}
             </div>
           </div>
         </div>
 
-        <div className="relative z-10 flex w-full justify-center pt-16 sm:pt-20 md:w-1/2 md:pt-40">
+        <div className="relative z-10 flex w-full justify-center pt-10 sm:pt-16 md:w-1/2 md:pt-36">
           <div className="group relative">
             <div className="absolute left-1/2 top-1/2 -z-10 h-[80%] w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#2f4f3f] opacity-20 blur-[100px] mix-blend-multiply" />
 
@@ -60,16 +58,16 @@ export default function FashionHero() {
               alt="Kaiyo Logo"
               width={550}
               height={550}
-              sizes="(min-width: 1024px) 550px, (min-width: 768px) 380px, (min-width: 640px) 280px, 240px"
+              sizes="(min-width: 1024px) 550px, (min-width: 768px) 420px, (min-width: 640px) 320px, 240px"
               priority
-              className="relative z-10 h-auto w-[240px] sm:w-[280px] md:w-[380px] lg:w-[550px] object-contain grayscale contrast-125 drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]"
+              className="relative z-10 h-auto w-[240px] object-contain grayscale contrast-125 drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] sm:w-[320px] md:w-[420px] lg:w-[550px]"
             />
           </div>
 
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ repeat: Infinity, duration: 15, ease: 'linear' }}
-            className="absolute right-0 top-4 z-30 flex h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 lg:h-32 lg:w-32 cursor-pointer items-center justify-center rounded-full border-2 border-white/30 shadow-xl transition-transform hover:scale-110"
+            className="absolute right-0 top-4 z-30 flex h-20 w-20 cursor-pointer items-center justify-center rounded-full border-2 border-white/30 shadow-xl transition-transform hover:scale-110 sm:right-0 sm:top-8 sm:h-24 sm:w-24 md:-right-8 md:h-28 md:w-28 lg:-right-10 lg:h-32 lg:w-32"
           >
             <div className="absolute inset-0 flex items-center justify-center">
               <svg viewBox="0 0 100 100" className="h-full w-full p-2">
@@ -89,20 +87,20 @@ export default function FashionHero() {
           </motion.div>
         </div>
 
-        <div className="z-20 mt-12 flex w-full flex-col items-end space-y-8 sm:space-y-10 self-stretch text-right sm:mt-16 md:mt-20 lg:mt-60 md:w-1/4">
-          <div className="group cursor-default">
+        <div className="z-20 flex w-full flex-row items-center justify-center gap-8 pb-8 md:flex-col md:items-end md:justify-start md:gap-0 md:space-y-12 md:self-stretch md:pb-0 md:pt-48 md:w-1/4 md:text-right">
+          <div className="group cursor-default text-center md:text-right">
             <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-none tracking-tighter transition-colors group-hover:text-[#2f4f3f]">
               FAST
             </h3>
-            <p className="mt-2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] opacity-60">
+            <p className="mt-1 sm:mt-2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] opacity-60">
               Delivery
             </p>
           </div>
-          <div className="group cursor-default">
+          <div className="group cursor-default text-center md:text-right">
             <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-none tracking-tighter transition-colors group-hover:text-[#2f4f3f]">
               MODERN
             </h3>
-            <p className="mt-2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] opacity-60">
+            <p className="mt-1 sm:mt-2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] opacity-60">
               Design
             </p>
           </div>
