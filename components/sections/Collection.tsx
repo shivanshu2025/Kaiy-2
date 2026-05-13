@@ -58,7 +58,7 @@ export default function PortfolioPage() {
           >
             <motion.h1 
               variants={itemVariants}
-              className="text-6xl md:text-[7.5rem] font-black uppercase leading-[0.8] tracking-tighter"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] font-black uppercase leading-[0.8] tracking-tighter"
             >
               Building <br /> 
               The <span className="text-[#004643] italic">Future</span> <br />

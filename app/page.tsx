@@ -9,6 +9,7 @@ import Collection from "@/components/sections/Collection";
 import Blog from "@/components/sections/Blog";
 import Banner from "@/components/sections/Banner";
 import FutureEquitySection from "@/components/sections/FutureEquitySection";
+import Ads from "@/components/sections/ads"
 
 
 export default function Home() {
@@ -22,7 +23,7 @@ export default function Home() {
              <FutureEquitySection/>
           <Feature />
           <Blog />
-         
+         <Ads/>
           <Banner />
         </main>
     </>

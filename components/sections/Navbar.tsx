@@ -71,7 +71,7 @@ export default function Navbar({
                   className="h-10 w-auto object-contain sm:h-12"
                 />
 
-                <span className="text-sm font-extralight uppercase tracking-[0.2em] text-stone-900 sm:text-lg">
+                <span className="text-xs sm:text-sm md:text-lg font-extralight uppercase tracking-[0.2em] text-stone-900">
                   Kaiy{"\u014d"}
                 </span>
               </motion.div>

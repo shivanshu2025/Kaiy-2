@@ -38,7 +38,7 @@ export default function OurStorySection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="text-left text-5xl font-black uppercase leading-[0.85] tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl"
+            className="text-left text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black uppercase leading-[0.85] tracking-tighter"
           >
             Built for The Bold.
           </motion.h2>
@@ -101,9 +101,9 @@ export default function OurStorySection() {
             y: { repeat: Infinity, duration: 4, ease: 'easeInOut' },
           }}
           whileHover={{ scale: 1.2, rotate: 15 }}
-          className="absolute -bottom-8 -left-4 z-30 h-28 w-28 sm:-bottom-10 sm:-left-6 sm:h-36 sm:w-36 md:-bottom-14 md:-left-12 md:h-44 md:w-44"
+          className="absolute -bottom-6 -left-2 sm:-bottom-8 sm:-left-4 md:-bottom-14 md:-left-12 z-30 h-24 w-24 sm:h-28 sm:w-28 md:h-36 md:w-36 lg:h-44 lg:w-44"
         >
-          <div className="group relative flex h-full w-full cursor-pointer items-center justify-center rounded-full border-2 border-white/20 p-1 shadow-2xl md:border-4">
+          <div className="group relative flex h-full w-full cursor-pointer items-center justify-center rounded-full border-2 sm:border-2 md:border-4 border-white/20 p-1 shadow-2xl">
             <div className="absolute bottom-2 left-2 h-8 w-8 rounded-full bg-white/20 blur-md transition-colors group-hover:bg-white/40 md:h-14 md:w-14" />
 
             <svg viewBox="0 0 100 100" className="h-full w-full animate-[spin_15s_linear_infinite]">

@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function FashionHero() {
   return (
-    <section className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-[#E5E5E5] px-4 font-serif text-[#2D3627] sm:px-6">
+    <section className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-[#E5E5E5] px-3 sm:px-4 md:px-6 font-serif text-[#2D3627]">
       <div className="absolute left-4 top-4 z-30 sm:left-10 sm:top-10">
         <div className="flex flex-col items-center bg-black p-2 text-[10px] leading-none tracking-widest text-white">
           <span className="mb-1 font-mono text-lg tracking-[-1px]">
@@ -27,25 +27,25 @@ export default function FashionHero() {
 
       <div className="relative z-10 flex w-full max-w-7xl flex-col items-center justify-between md:flex-row">
         <div className="z-20 mt-24 w-full max-w-md space-y-10 sm:space-y-12 md:mt-0 md:w-1/3 md:max-w-none">
-          <div className="w-full max-w-[320px] -rotate-1 border-r-4 border-[#2f4f3f] bg-black p-3 text-white shadow-2xl">
-            <h2 className="mb-2 text-xl font-bold tracking-tight">
+          <div className="w-full max-w-[280px] sm:max-w-[320px] -rotate-1 sm:-rotate-1 border-r-4 border-[#2f4f3f] bg-black p-3 text-white shadow-2xl">
+            <h2 className="mb-2 text-lg sm:text-xl font-bold tracking-tight">
               Venture Capital Reimagined.
             </h2>
-            <p className="text-sm font-medium uppercase leading-relaxed tracking-tight opacity-80">
+            <p className="text-xs sm:text-sm font-medium uppercase leading-relaxed tracking-tight opacity-80">
               Building a startup is chaotic. Kaiy{"\u014d"} provides the
               structure, style, and scale to turn vision into market dominance.
             </p>
           </div>
 
-          <div className="group relative h-56 w-44 rotate-2 overflow-hidden rounded-2xl border-4 border-white shadow-2xl">
+          <div className="group relative h-48 w-40 sm:h-56 sm:w-44 rotate-2 overflow-hidden rounded-2xl border-4 border-white shadow-2xl">
             <Image
               src="/images/kk.png"
               alt="Yellow Jacket"
               fill
-              sizes="176px"
+              sizes="(min-width: 640px) 176px, 160px"
               className="object-cover grayscale transition-all duration-500 hover:grayscale-0"
             />
-            <div className="absolute bottom-6 -left-4 bg-[#2D3627] px-4 py-1 text-[10px] font-bold uppercase text-white -rotate-12">
+            <div className="absolute bottom-4 sm:bottom-6 -left-3 sm:-left-4 bg-[#2D3627] px-3 sm:px-4 py-1 text-[8px] sm:text-[10px] font-bold uppercase text-white -rotate-12">
               I create websites and sell them.{"\u201d"}
             </div>
           </div>
@@ -60,16 +60,16 @@ export default function FashionHero() {
               alt="Kaiyo Logo"
               width={550}
               height={550}
-              sizes="(min-width: 768px) 550px, (min-width: 640px) 380px, 280px"
+              sizes="(min-width: 1024px) 550px, (min-width: 768px) 380px, (min-width: 640px) 280px, 240px"
               priority
-              className="relative z-10 h-auto w-[280px] object-contain grayscale contrast-125 drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] sm:w-[380px] md:w-[550px]"
+              className="relative z-10 h-auto w-[240px] sm:w-[280px] md:w-[380px] lg:w-[550px] object-contain grayscale contrast-125 drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]"
             />
           </div>
 
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ repeat: Infinity, duration: 15, ease: 'linear' }}
-            className="absolute right-2 top-6 z-30 flex h-24 w-24 cursor-pointer items-center justify-center rounded-full border-2 border-white/30 shadow-xl transition-transform hover:scale-110 sm:right-0 sm:top-10 sm:h-28 sm:w-28 md:-right-10 md:h-32 md:w-32"
+            className="absolute right-0 top-4 z-30 flex h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 lg:h-32 lg:w-32 cursor-pointer items-center justify-center rounded-full border-2 border-white/30 shadow-xl transition-transform hover:scale-110"
           >
             <div className="absolute inset-0 flex items-center justify-center">
               <svg viewBox="0 0 100 100" className="h-full w-full p-2">
@@ -78,31 +78,31 @@ export default function FashionHero() {
                   d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
                   fill="transparent"
                 />
-                <text className="fill-white text-[9px] font-bold uppercase tracking-[3px]">
+                <text className="fill-white text-[8px] sm:text-[9px] font-bold uppercase tracking-[3px]">
                   <textPath xlinkHref="#circlePath">
                     {"\u201c"}I build websites for clients and sell them.{"\u201d"}
                   </textPath>
                 </text>
               </svg>
             </div>
-            <span className="font-sans text-3xl text-white">{"\u2192"}</span>
+            <span className="font-sans text-2xl sm:text-3xl text-white">{"\u2192"}</span>
           </motion.div>
         </div>
 
-        <div className="z-20 mt-12 flex w-full flex-col items-end space-y-10 self-stretch text-right sm:mt-16 sm:space-y-16 md:mt-60 md:w-1/4">
+        <div className="z-20 mt-12 flex w-full flex-col items-end space-y-8 sm:space-y-10 self-stretch text-right sm:mt-16 md:mt-20 lg:mt-60 md:w-1/4">
           <div className="group cursor-default">
-            <h3 className="text-5xl font-bold leading-none tracking-tighter transition-colors group-hover:text-[#2f4f3f] sm:text-6xl md:text-7xl">
+            <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-none tracking-tighter transition-colors group-hover:text-[#2f4f3f]">
               FAST
             </h3>
-            <p className="mt-2 text-xs font-bold uppercase tracking-[0.2em] opacity-60">
+            <p className="mt-2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] opacity-60">
               Delivery
             </p>
           </div>
           <div className="group cursor-default">
-            <h3 className="text-5xl font-bold leading-none tracking-tighter transition-colors group-hover:text-[#2f4f3f] sm:text-6xl md:text-7xl">
+            <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-none tracking-tighter transition-colors group-hover:text-[#2f4f3f]">
               MODERN
             </h3>
-            <p className="mt-2 text-xs font-bold uppercase tracking-[0.2em] opacity-60">
+            <p className="mt-2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] opacity-60">
               Design
             </p>
           </div>
