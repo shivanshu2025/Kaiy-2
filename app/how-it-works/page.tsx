@@ -171,7 +171,7 @@ export default function HowItWorksPage() {
               <img
                 src="https://engineersealstamps.com/cdn/shop/products/in-use-great-job-stamp-4773-photo-1_a600c697-e7ec-4ee7-89e3-f7288a7894e4.jpg?v=1683890415&width=1500"
                 alt="How it works"
-                className="w-full h-auto max-h-[400px] object-cover shadow-lg rounded-xl"
+                className="w-full h-auto  object-cover shadow-lg rounded-xl"
               />
             </div>
 

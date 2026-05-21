@@ -30,6 +30,15 @@ body {
   -ms-overflow-style: none;
 }
 
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
 /* Ensure images and videos don't overflow */
 img, video {
   max-width: 100%;

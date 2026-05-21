@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Footer from '@/components/sections/Footer';
+import FooterWrapper from '@/components/sections/FooterWrapper';
 import NavbarWrapper from '@/components/sections/NavbarWrapper';
 import { cn } from '@/lib/utils';
 import '@/styles/globals.css';
@@ -53,14 +53,11 @@ export default function RootLayout({
           inter.className
         )}
       >
-        {/* Navbar (conditional) */}
         <NavbarWrapper />
-        {/* Main Content */}
         <div className="flex-1">
           {children}
         </div>
-        {/* Footer */}
-        <Footer />
+        <FooterWrapper />
       </body>
     </html>
   );
