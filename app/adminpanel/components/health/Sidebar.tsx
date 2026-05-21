@@ -28,14 +28,11 @@ type NavItem = {
 function BeRunLogo() {
   return (
     <div className="flex flex-col items-center gap-2">
-      <div className="relative h-8 w-8 text-[#151720]">
-        <span className="absolute left-[11px] top-0 h-3.5 w-3.5 rounded-[7px] bg-current" />
-        <span className="absolute left-0 top-[13px] h-3.5 w-3.5 rounded-[7px] bg-current" />
-        <span className="absolute right-0 top-[13px] h-3.5 w-3.5 rounded-[7px] bg-current" />
-        <span className="absolute left-[9px] top-[18px] h-4 w-4 rotate-45 rounded-[6px] bg-current" />
+      <div className="relative h-10 w-10 text-[#151720]">
+       <img src="/images/Kaiyologo.png" alt="" />
       </div>
       <span className="text-[12px] font-black tracking-tight text-[#171923]">
-        ka.iyo
+        kaiyo
       </span>
     </div>
   );
